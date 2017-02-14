@@ -1,0 +1,40 @@
+<?xml	version="1.0"?>
+<config	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add	
+            id="Mymodule_SEO::helloworld"	
+            title="HelloWorld"	
+            module="Mymodule_SEO"	
+            sortOrder="50"	
+            parent="Magento_Backend::marketing"	
+            resource="Mymodule_SEO::helloworld"
+        />
+        <add	
+            id="Mymodule_SEO::index"	
+            title="Helloworld Index"	
+            module="Mymodule_SEO"	
+            sortOrder="55"	
+            parent="Mymodule_SEO::helloworld"	
+            action="helloworld/index/"	
+            resource="Mymodule_SEO::index"
+        />
+        <add	
+            id="Mymodule_SEO::subscription"
+            title="Subscriptions"
+            module="Mymodule_SEO"
+            sortOrder="70"
+            parent="Mymodule_SEO::helloworld"
+            action="helloworld/subscription/"
+            resource="Mymodule_SEO::subscription"
+        />
+        <add
+            id="Mymodule_SEO::component"
+            title="Components"
+            module="Mymodule_SEO"
+            sortOrder="80"
+            parent="Mymodule_SEO::helloworld"
+            action="helloworld/component/"
+            resource="Mymodule_SEO::helloworld"
+        />
+    </menu>
+</config>

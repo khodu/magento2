@@ -1,0 +1,8 @@
+<h1>This is my template, there are many like it, but this one is mine.</h1>
+<?php $collection = $this->getCollection();
+    foreach($collection as $item)
+    {
+        echo '<h2>Item ID:</h2> ' . $item->getId().'<br/>';
+        echo '<h2>Item Title:</h2> ' . $item->getTitle();
+    }
+     ?>

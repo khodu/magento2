@@ -1,0 +1,25 @@
+
+<?php  
+//echo'<pre />';  print_r($this->getProductCollection()->getData());
+
+ ?>
+<?php $productCollection = $block->getPCollection()->getData();
+
+ //print_r($pCollection->getData());
+
+        ?><?php if ($block->getPagerHtml()): ?>
+        <div class="order-products-toolbar toolbar bottom"><?php echo $block->getPagerHtml(); ?></div>
+
+    <?php if (count($productCollection)): ?>
+            <ul>
+                <?php foreach ($productCollection as $pro): 
+                $product=$block->getLoadProduct($pro['entity_id']);
+                    $imageUrl =  $block->getUrl('pub/media/catalog').'product'.$product->getImage();?>
+                <li><img src="<?php echo $imageUrl ?>" width="220px" /><?php echo $product->getName() ?></li>
+                <?php endforeach; ?>
+            </ul>
+        <?php else:?>
+            <h1>There is no matching product in this brand...</h1>
+        <?php  endif; ?>   
+   
+     <?php endif ?>

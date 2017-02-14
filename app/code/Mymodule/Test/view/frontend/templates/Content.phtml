@@ -1,0 +1,12 @@
+<h1>This is my template, there are many like it, but this one is mine.</h1>
+<?php 
+  $asset_repository = $this->assetRepository;
+  $asset  = $asset_repository->createAsset('Mymodule_Test::test.js');
+  $asset1  = $asset_repository->createAsset('Mymodule_Test::test.css');
+  $url    = $asset->getUrl();
+
+  ?>
+  <!-- Hello There -->
+  <script src="<?php echo $url; ?>"></script>
+  <link type="text/css" rel="stylesheet" href="<?php echo $asset1->getUrl(); ?>"> 
+

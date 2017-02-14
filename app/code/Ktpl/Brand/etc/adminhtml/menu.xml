@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+    <add id="Ktpl_Brand::a_menu_item" resource="Ktpl_Brand::menu_2" title="Ktpl Brand" action="ktpl_brand/index/index" module="Ktpl_Brand" sortOrder="1" parent="Magento_Backend::system_other_settings" dependsOnModule="Magento_Backend"/></menu>
+</config>

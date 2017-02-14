@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<!--<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="../../../../../../../lib/internal/Magento/Framework/View/Layout/etc/page_configuration.xsd"> 
+    <head>
+      <!--  <css src="Mymodule_Test::test.css"/>
+        <link src="Mymodule_Test::test.js"/> -->
+    </head>
+    <referenceBlock name="content">
+        <block template="Content.phtml" class="Ktpl\Brand\Block\Main" name="ktpl_brand_block_main"/>
+    </referenceBlock>
+</page>
