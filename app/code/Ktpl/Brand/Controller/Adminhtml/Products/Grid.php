@@ -1,5 +1,5 @@
 <?php
-
+       
 namespace  Ktpl\Brand\Controller\Adminhtml\Products;
 
 class Grid extends \Ktpl\Brand\Controller\Adminhtml\Products\Product
@@ -24,9 +24,10 @@ class Grid extends \Ktpl\Brand\Controller\Adminhtml\Products\Product
         \Magento\Framework\Controller\Result\RawFactory $resultRawFactory,
         \Magento\Framework\View\LayoutFactory $layoutFactory
     ) {
-        parent::__construct($context);
+        
         $this->resultRawFactory = $resultRawFactory;
         $this->layoutFactory = $layoutFactory;
+        parent::__construct($context);
     }
 
     /**
@@ -56,12 +57,12 @@ class Grid extends \Ktpl\Brand\Controller\Adminhtml\Products\Product
      protected function _initItem($getRootInstead = false)
     {
         $id = (int)$this->getRequest()->getParam('id', false);
-        $myModel = $this->_objectManager->create('Ktpl\Brand\Model\Item');
+        $myModel = $this->_objectManager->create('Ktpl\Brand\Model\Brandproduct');
 
         if ($id) {
             $myModel->load($id);            
         }
-
+        echo 'sdghs'; exit;
         $this->_objectManager->get('Magento\Framework\Registry')->register('item', $myModel);
         $this->_objectManager->get('Magento\Framework\Registry')->register('my_item', $myModel);
         $this->_objectManager->get('Magento\Cms\Model\Wysiwyg\Config');

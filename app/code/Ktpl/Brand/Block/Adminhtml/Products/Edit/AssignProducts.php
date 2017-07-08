@@ -41,7 +41,7 @@ Namespace Ktpl\Brand\Block\Adminhtml\Products\Edit;
             \Magento\Backend\Block\Template\Context $context,
             \Magento\Framework\Registry $registry,
             \Magento\Framework\Json\EncoderInterface $jsonEncoder,
-            \Ktpl\Brand\Model\ResourceModel\Product\CollectionFactory $productCollectionFactory, //your custom collection
+            \Ktpl\Brand\Model\ResourceModel\Brandproduct\CollectionFactory $productCollectionFactory, //your custom collection
             array $data = []
         ) {
             $this->registry = $registry;

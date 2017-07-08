@@ -55,4 +55,33 @@
     </arguments>
 </virtualType>
  
+ 
+ 
+
+<!--   
+     <virtualType name="Ktpl\Brand\Ui\DataProvider\Product\Form\Modifier\Pool" type="Magento\Ui\DataProvider\Modifier\Pool">
+        <arguments>
+            <argument name="modifiers" xsi:type="array">
+                <item name="customertab" xsi:type="array">
+                    <item name="class" xsi:type="string">Ktpl\Brand\Ui\DataProvider\Brand\Modifier\ProductTab</item>
+                    <item name="sortOrder" xsi:type="number">200</item>
+                </item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <type name="Ktpl\Brand\Ui\DataProvider\Brand\Modifier\ProductTab">
+        <arguments>
+            <argument name="scopeName" xsi:type="string">product_form.product_form</argument>
+        </arguments>
+    </type>
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+      <arguments>
+          <argument name="collections" xsi:type="array">
+              <item name="producttab_customer_listing_data_source" xsi:type="string">Magento\Catalog\Model\ResourceModel\Grid\Collection</item>
+          </argument>
+      </arguments>
+  </type>-->
+ 
+ 
+ 
 </config>

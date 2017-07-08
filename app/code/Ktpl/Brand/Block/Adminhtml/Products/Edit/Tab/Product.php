@@ -29,7 +29,7 @@ class Product extends \Magento\Backend\Block\Widget\Grid\Extended
         \Magento\Backend\Block\Template\Context $context,
         \Magento\Backend\Helper\Data $backendHelper,
         \Magento\Catalog\Model\ProductFactory $productFactory,
-        \Ktpl\Brand\Model\ResourceModel\Product\CollectionFactory $productCollectionFactory,
+        \Ktpl\Brand\Model\ResourceModel\Brandproduct\CollectionFactory $productCollectionFactory,
         \Magento\Framework\Registry $coreRegistry,
         array $data = []
     ) {
@@ -55,6 +55,7 @@ class Product extends \Magento\Backend\Block\Widget\Grid\Extended
      */
     public function getItem()
     {
+       
         return $this->_coreRegistry->registry('my_item');
     }
 
@@ -87,9 +88,9 @@ class Product extends \Magento\Backend\Block\Widget\Grid\Extended
      */
     protected function _prepareCollection()
     {
-        if ($this->getItem()->getId()) {
+       /* if ($this->getItem()->getId()) {
             $this->setDefaultFilter(['in_category' => 1]);
-        }       
+        }      */ 
         $collection = $this->_productFactory->create()->getCollection()->addAttributeToSelect(
             'name'
         )->addAttributeToSelect(
@@ -112,7 +113,7 @@ class Product extends \Magento\Backend\Block\Widget\Grid\Extended
 
         $this->setCollection($collection);
 
-        if ($this->getItem()->getProductsReadonly()) {
+        if ($this->getItem()->getProductReadonly()) {
             $productIds = $this->_getSelectedProducts();
             if (empty($productIds)) {
                 $productIds = 0;
@@ -128,7 +129,7 @@ class Product extends \Magento\Backend\Block\Widget\Grid\Extended
      */
     protected function _prepareColumns()
     {
-        if (!$this->getItem()->getProductsReadonly()) {
+       /* if (!$this->getItem()->getProductsReadonly()) {
             $this->addColumn(
                 'in_category',
                 [
@@ -140,7 +141,7 @@ class Product extends \Magento\Backend\Block\Widget\Grid\Extended
                     'column_css_class' => 'col-select col-massaction'
                 ]
             );
-        }
+        } */
         $this->addColumn(
             'entity_id',
             [
@@ -171,7 +172,7 @@ class Product extends \Magento\Backend\Block\Widget\Grid\Extended
                 'header' => __('Position'),
                 'type' => 'number',
                 'index' => 'position',
-                'editable' => !$this->getItem()->getProductsReadonly()
+                'editable' => true //!$this->getItem()->getProductsReadonly()
             ]
         );
         return parent::_prepareColumns();
@@ -182,7 +183,7 @@ class Product extends \Magento\Backend\Block\Widget\Grid\Extended
      */
     public function getGridUrl()
     {
-        return $this->getUrl('module/products/grid', ['_current' => true]);
+        return $this->getUrl('ktpl_brand/index/grid', ['_current' => true]);
     }
 
     /**
@@ -193,7 +194,7 @@ class Product extends \Magento\Backend\Block\Widget\Grid\Extended
         $products = $this->getRequest()->getPost('selected_products');
         if ($products === null) {   
             $vProducts = $this->_productCollectionFactory->create()
-                                ->addFieldToFilter('customer_id',  $this->getItem()->getCustomerId()) 
+                                ->addFieldToFilter('brand_id',  $this->getItem()->getBrandId()) 
                                 ->addFieldToSelect('product_id');   
             $products = array();
             foreach($vProducts as $pdct){      
